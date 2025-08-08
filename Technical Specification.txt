@@ -1,0 +1,67 @@
+Technical Specification: Tetris Game in Java
+Project Title:
+Tetris Classic — Lightweight Java Implementation
+
+Objective:
+Develop a compact, portable version of the classic Tetris game using pure Java, without external game engines or libraries. The game should run as a standalone .jar file and be compatible with major desktop platforms (Windows, macOS, Linux).
+
+Technology Stack
+Language: Java (JDK 8+)
+GUI Toolkit: javax.swing
+Graphics: java.awt.Graphics, java.awt.Color, java.awt.event
+Build Tool: Manual compilation via javac or optional use of Maven/Gradle for packaging
+Functional Requirements
+1. Game Window
+Fixed-size window (e.g., 400x800 pixels)
+Title: "Tetris Classic"
+Non-resizable
+Close button exits the game
+2. Game Board
+Grid size: 10 columns × 20 rows
+Each cell is a square (e.g., 40x40 pixels)
+Background color and grid lines for visual clarity
+3. Tetrominoes
+7 standard shapes: I, O, T, S, Z, J, L
+Each shape has a color
+Rotation logic (clockwise only)
+Spawn at the top center of the board
+4. Game Mechanics
+Gravity: pieces fall at a fixed interval (adjustable by level)
+Collision detection: prevent movement through walls or other blocks
+Line clearing: remove full rows and shift above rows down
+Scoring system:
+1 line: 100 points
+2 lines: 300 points
+3 lines: 500 points
+4 lines (Tetris): 800 points
+Level progression: increase speed every 10 lines cleared
+5. User Input
+Arrow keys:
+Left/Right: move piece
+Down: soft drop
+Spacebar: hard drop
+Up arrow: rotate piece
+P: pause/resume
+R: restart game
+6. Game Over
+Triggered when new piece cannot spawn
+Display "Game Over" message
+Option to restart or exit
+Non-Functional Requirements
+Portability: Runs on any OS with Java installed
+Performance: Smooth rendering and input handling
+Packaging: Single executable .jar file
+Code Quality: Modular, readable, and well-commented code
+Suggested Class Structure
+Class Name	Responsibility
+Main	Entry point, initializes game
+GamePanel	Main canvas, handles rendering and game loop
+Board	Stores grid state, line clearing logic
+Tetromino	Shape definitions, rotation, movement
+InputHandler	Key bindings and input processing
+GameState	Score, level, pause, game over flags
+Optional Features
+Sound effects (using javax.sound.sampled)
+High score saving (simple file I/O)
+Preview of next piece
+Hold piece functionality
